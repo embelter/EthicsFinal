@@ -1,0 +1,25 @@
+h1	{
+	color: red;
+}
+body	{
+	
+}
+p	{
+	margin:0px;
+	padding:0px;
+}
+span	{
+	display:inline-block;
+	height:15px;
+	width:10px;
+	background-color:lightgrey;
+	margin:1px;
+	border-radius:50%;
+}
+input	{
+	width:20px;
+}
+label	{
+	display:inline-block;
+	width:60px;
+}
