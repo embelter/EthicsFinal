@@ -2,8 +2,9 @@ h1	{
 	color: red;
 }
 body	{
-	
-}
+	background-image: url("https://images5.alphacoders.com/491/thumb-1920-491120.png");
+	background-color: #cccccc;
+	}
 p	{
 	margin:0px;
 	padding:0px;

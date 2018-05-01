@@ -20,7 +20,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Must be greater then express 4.8 for sendFile
 app.get('/', function (req, res) {
-	res.sendFile(path.join(__dirname + "/index.html"));
+	var name = "TEST";
+
+	res.sendFile(path.join(__dirname + "/index.html"), name);
 });
 app.post('/', function(req, res) {
 
