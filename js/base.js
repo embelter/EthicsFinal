@@ -7,8 +7,8 @@ $(document).ready(function() {
     });
     var titleDiv1 = createDivElement(200, 50, "black", 5);
     var titleDiv2 = createDivElement(300, 50, "black", 15);
-	$("body").append(titleDiv1);
-	$("body").append(titleDiv2);
+	$("body").append(addTextToMe(titleDiv1, "Something Something"));
+	$("body").append(addTextToMe(titleDiv2, "Edward Snowden"));
 });
 
 function createDivElement (w, h, c, p) { 
@@ -23,3 +23,10 @@ function createDivElement (w, h, c, p) {
 	  $(newDiv).css("border-radius", 15 + "px");
 	  return newDiv;
 	}
+function addTextToMe (me, string)	{
+	var addMe = document.createElement("font");
+	$(addMe).append(string);
+	$(addMe).css("color", "white");
+	$(me).append(addMe);
+	return me;
+}
