@@ -1,17 +1,19 @@
-// The following block of code is loaded once webpage is completed
+// The following block of code is loaded once index.html is rendered
 $(document).ready(function() {
     $.ajax({
-        url: "https://api.ipify.org?format=json"
+        url: "http://ip-api.com/json"
     }).then(function(data) {
-       $("#bodyCard1").append(data.ip);
+       $("#bodyCard1").append(data.query + "</br>");
+       $("#bodyCard1").append(data.country + "</br>");
+       $("#bodyCard1").append(data.zip + "</br>");
+       $("#bodyCard1").append(data.city + "</br>");
     });
     var titleDiv1 = createDivElement(500, 50, "black", 5, "titleCard1");
     var titleDiv2 = createDivElement(400, 50, "black", 15, "titleCard2");
-    var titleDiv3 = createDivElement(300, 500, "black", 25, "bodyCard1");
-    
+    var titleDiv3 = createDivElement(300, 500, "black", 25, "bodyCard1");    
 	$("body").append(addTextToMe(titleDiv1, "Something Something", "Aqua", "30px"));
 	$("body").append(addTextToMe(titleDiv2, "Edward Snowden", "Aqua", "30px"));
-	$("body").append(addTextToMe(titleDiv3));	
+	$("body").append(addTextToMe(titleDiv3));		
 });
 
 // Creates a basic div element with indicated properties
