@@ -1,16 +1,18 @@
 // The following block of code is loaded once index.html is rendered
 $(document).ready(function() {
     $.ajax({
-        url: "http://ip-api.com/json"
+        url: "https://api.userinfo.io/userinfos?json" //http://ip-api.com/json
     }).then(function(data) {
-       $("#bodyCard1").append(data.query + "</br>");
-       $("#bodyCard1").append(data.country + "</br>");
-       $("#bodyCard1").append(data.zip + "</br>");
-       $("#bodyCard1").append(data.region + "</br>");
-       $("#bodyCard1").append(data.city + "</br>");
+       $("#bodyCard1").append("Let's take a look at your location: </br>");
+       $("#bodyCard1").append(data.ip_address + "</br>");
+       $("#bodyCard1").append(data.continent.name + "</br>");
+       $("#bodyCard1").append(data.country.name + "</br>");
+       $("#bodyCard1").append(data.city.code + "</br>");
+       $("#bodyCard1").append(data.city.name + "</br>");
+       $("#bodyCard1").append(data.position.latitude + "</br>");
+       $("#bodyCard1").append(data.position.longitude + "</br>");
        
-       
-       fillSecondDiv(data.region, data.city);
+       fillSecondDiv(data.city.name, data.city.code); //fillSecondDiv(data.region, data.city);
     });
     
     var titleDiv1 = createDivElement(500, 50, "black", 5, "titleCard1", 2);
@@ -23,9 +25,9 @@ $(document).ready(function() {
 	$("body").append(addTextToMe(titleDiv3));
 	$("body").append(addTextToMe(titleDiv4));
 });
-function fillSecondDiv(region, city)	{
+function fillSecondDiv(city, zip)	{
     $.ajax({
-        url: "http://api.wunderground.com/api/5c9f8cd57ad7d518/conditions/q/" + region + "/" + city + ".json"
+    	url: "https://api.wunderground.com/api/5c9f8cd57ad7d518/conditions/q/" + zip + ".json" //url: "https://api.wunderground.com/api/5c9f8cd57ad7d518/conditions/q/" + region + "/" + city + ".json"
     }).then(function(data) {
        $("#bodyCard2").append("The weather in " + city + ":</br>");
        $("#bodyCard2").append("Temp: " + data.current_observation.temp_f + "</br>");
